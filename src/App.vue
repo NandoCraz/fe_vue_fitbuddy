@@ -7,9 +7,9 @@
 <script>
 import { computed, onMounted } from "vue";
 import { useRoute } from "vue-router";
-import BlankLayout from "./layouts/BlankLayout.vue";
-import AppLayout from "./layouts/AppLayout.vue";
-import { useAuthStore } from "./store/useAuth";
+import BlankLayout from "@/layouts/BlankLayout.vue";
+import AppLayout from "@/layouts/AppLayout.vue";
+import { useAuthStore } from "@/store/useAuth";
 
 export default {
   components: {

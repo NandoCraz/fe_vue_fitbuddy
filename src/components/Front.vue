@@ -185,7 +185,7 @@
 
         <!-- Workout Timer -->
         <router-link
-          to="/workout-timer"
+          to="/timer"
           data-aos="fade-up"
           data-aos-delay="300"
           class="glass rounded-2xl p-6 hover:shadow-2xl transition-all group cursor-pointer"
@@ -429,7 +429,7 @@
 
 <script setup>
 import { computed, onMounted } from "vue";
-import { useAuthStore } from "../store/useAuth";
+import { useAuthStore } from "@/store/useAuth";
 import AOS from "aos";
 import "aos/dist/aos.css";
 

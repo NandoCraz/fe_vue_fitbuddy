@@ -121,7 +121,7 @@
 <script setup>
 import { ref } from "vue";
 import { useRouter } from "vue-router";
-import { useAuthStore } from "./store/useAuth";
+import { useAuthStore } from "@/store/useAuth";
 
 const router = useRouter();
 const authStore = useAuthStore();

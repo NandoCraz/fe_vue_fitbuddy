@@ -80,7 +80,7 @@
 
 <script setup>
 import { ref, reactive, computed, onMounted } from "vue";
-import { useAuthStore } from "../store/useAuth";
+import { useAuthStore } from "@/store/useAuth";
 
 const authStore = useAuthStore();
 

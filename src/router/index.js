@@ -1,13 +1,13 @@
-import Login from "../Login.vue";
-import Register from "../Register.vue";
-import Front from "../components/Front.vue";
-import Profile from "../components/Profile.vue";
-import WorkoutPlan from "../components/WorkoutPlan.vue";
-import Timer from "../components/Timer.vue";
-import Track from "../components/Track.vue";
-import Kalori from "../components/Kalori.vue";
+import Login from "@/Login.vue";
+import Register from "@/Register.vue";
+import Front from "@/components/Front.vue";
+import Profile from "@/components/Profile.vue";
+import WorkoutPlan from "@/components/WorkoutPlan.vue";
+import Timer from "@/components/Timer.vue";
+import Track from "@/components/Track.vue";
+import Kalori from "@/components/Kalori.vue";
 import { createRouter, createWebHistory } from "vue-router";
-import { useAuthStore } from "../store/useAuth";
+import { useAuthStore } from "@/store/useAuth";
 
 const routes = [
   {
