@@ -4,12 +4,15 @@
       <!-- Header -->
       <div class="text-center mb-8">
         <h1 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-3">
-          <span class="bg-gradient-to-r from-bright-blue to-lime bg-clip-text text-transparent">
+          <span
+            class="bg-gradient-to-r from-bright-blue to-lime bg-clip-text text-transparent"
+          >
             Workout Timer
           </span>
         </h1>
         <p class="text-gray-600">
-          Kelola waktu workout dengan mudah dan pantau kalori terbakar secara real-time
+          Kelola waktu workout dengan mudah dan pantau kalori terbakar secara
+          real-time
         </p>
       </div>
 
@@ -28,7 +31,7 @@
                 <i class="fas fa-running text-lime mr-2"></i>
                 Pilih Aktivitas
               </label>
-              
+
               <!-- Category Filter -->
               <select
                 v-model="selectedCategory"
@@ -50,7 +53,9 @@
                   placeholder="Cari aktivitas..."
                   class="w-full px-4 py-3 mb-2 border-2 border-gray-200 rounded-xl focus:border-bright-blue focus:outline-none"
                 />
-                <i class="fas fa-search absolute right-4 top-4 text-gray-400"></i>
+                <i
+                  class="fas fa-search absolute right-4 top-4 text-gray-400"
+                ></i>
               </div>
 
               <select
@@ -60,9 +65,9 @@
                 class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-bright-blue focus:outline-none transition-colors"
               >
                 <option value="">Pilih Aktivitas</option>
-                <option 
-                  v-for="activity in filteredActivities" 
-                  :key="activity.key" 
+                <option
+                  v-for="activity in filteredActivities"
+                  :key="activity.key"
                   :value="activity.key"
                 >
                   {{ activity.name }} ({{ activity.met_value }} MET)
@@ -70,9 +75,12 @@
               </select>
 
               <!-- Selected Activity Info -->
-              <div v-if="currentActivityInfo" class="mt-3 p-3 bg-bright-blue bg-opacity-10 rounded-xl">
+              <div
+                v-if="currentActivityInfo"
+                class="mt-3 p-3 bg-bright-blue bg-opacity-10 rounded-xl"
+              >
                 <div class="flex items-start space-x-3">
-                  <div 
+                  <div
                     class="px-3 py-1 rounded-full text-xs font-semibold"
                     :class="getIntensityClass(currentActivityInfo.intensity)"
                   >
@@ -168,7 +176,8 @@
                   <i class="fas fa-bed mr-2"></i>Istirahat
                 </span>
                 <span v-else class="text-bright-blue">
-                  <i class="fas fa-dumbbell mr-2"></i>Set {{ currentSet }} / {{ sets }}
+                  <i class="fas fa-dumbbell mr-2"></i>Set {{ currentSet }} /
+                  {{ sets }}
                 </span>
               </span>
             </div>
@@ -197,7 +206,9 @@
                   class="transition-all duration-1000"
                 />
               </svg>
-              <div class="absolute inset-0 flex flex-col items-center justify-center">
+              <div
+                class="absolute inset-0 flex flex-col items-center justify-center"
+              >
                 <div class="text-6xl font-bold text-gray-900 mb-2">
                   {{ formattedTime }}
                 </div>
@@ -214,7 +225,9 @@
                 <div class="text-3xl font-bold text-gray-900">
                   {{ caloriesBurned.toFixed(0) }}
                 </div>
-                <div class="text-sm text-gray-600 font-medium">Kalori Terbakar</div>
+                <div class="text-sm text-gray-600 font-medium">
+                  Kalori Terbakar
+                </div>
               </div>
               <div class="bg-blue-50 rounded-xl p-4 text-center">
                 <i class="fas fa-clock text-3xl text-blue-500 mb-2"></i>
@@ -234,7 +247,7 @@
                 class="flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-bright-blue to-lime text-white rounded-xl hover:shadow-xl transition-all text-lg font-semibold disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 <i class="fas fa-play"></i>
-                {{ isPaused ? 'Resume' : 'Start' }}
+                {{ isPaused ? "Resume" : "Start" }}
               </button>
               <button
                 v-else
@@ -254,7 +267,10 @@
             </div>
 
             <!-- Warning if no activity selected -->
-            <div v-if="!selectedActivity" class="mt-4 text-center text-sm text-gray-500">
+            <div
+              v-if="!selectedActivity"
+              class="mt-4 text-center text-sm text-gray-500"
+            >
               <i class="fas fa-info-circle mr-1"></i>
               Pilih aktivitas terlebih dahulu
             </div>
@@ -270,11 +286,19 @@
                 <i class="fas fa-history text-bright-blue mr-2"></i>
                 Riwayat Workout ({{ history.length }})
               </span>
-              <i :class="showHistory ? 'fas fa-chevron-up' : 'fas fa-chevron-down'" class="text-gray-400"></i>
+              <i
+                :class="
+                  showHistory ? 'fas fa-chevron-up' : 'fas fa-chevron-down'
+                "
+                class="text-gray-400"
+              ></i>
             </button>
 
             <div v-if="showHistory" class="space-y-3">
-              <p v-if="history.length === 0" class="text-gray-500 text-center py-8">
+              <p
+                v-if="history.length === 0"
+                class="text-gray-500 text-center py-8"
+              >
                 <i class="fas fa-clipboard text-4xl text-gray-300 mb-3"></i>
                 <br />
                 Belum ada riwayat workout
@@ -290,14 +314,18 @@
                       {{ workout.activity }}
                     </div>
                     <div class="text-sm text-gray-600">
-                      <i class="fas fa-clock mr-1"></i>{{ workout.duration }} menit × {{ workout.sets }} set
+                      <i class="fas fa-clock mr-1"></i
+                      >{{ workout.duration }} menit × {{ workout.sets }} set
                     </div>
                     <div class="text-xs text-gray-500 mt-1">
-                      <i class="fas fa-calendar mr-1"></i>{{ formatDate(workout.date) }}
+                      <i class="fas fa-calendar mr-1"></i
+                      >{{ formatDate(workout.date) }}
                     </div>
                   </div>
                   <div class="text-right">
-                    <div class="flex items-center gap-1 text-orange-600 font-bold text-xl">
+                    <div
+                      class="flex items-center gap-1 text-orange-600 font-bold text-xl"
+                    >
                       <i class="fas fa-fire"></i>
                       {{ workout.caloriesBurned }}
                     </div>
@@ -322,215 +350,224 @@
 </template>
 
 <script setup>
-import { ref, computed, onMounted, onUnmounted, watch } from 'vue'
+import { ref, computed, onMounted, onUnmounted, watch } from "vue";
 
-const API_URL = 'http://127.0.0.1:5000'
+const API_URL = "https://fitbuddy.pythonanywhere.com";
 
 // State
-const duration = ref(30)
-const sets = ref(3)
-const restDuration = ref(2)
-const weight = ref(70)
-const selectedActivity = ref('')
-const selectedCategory = ref('')
-const activitySearch = ref('')
-const caloriesPerHour = ref(0)
+const duration = ref(30);
+const sets = ref(3);
+const restDuration = ref(2);
+const weight = ref(70);
+const selectedActivity = ref("");
+const selectedCategory = ref("");
+const activitySearch = ref("");
+const caloriesPerHour = ref(0);
 
-const isRunning = ref(false)
-const isPaused = ref(false)
-const isRestMode = ref(false)
-const currentSet = ref(1)
-const timeLeft = ref(duration.value * 60)
-const caloriesBurned = ref(0)
+const isRunning = ref(false);
+const isPaused = ref(false);
+const isRestMode = ref(false);
+const currentSet = ref(1);
+const timeLeft = ref(duration.value * 60);
+const caloriesBurned = ref(0);
 
-const showHistory = ref(false)
-const history = ref([])
-const activities = ref([])
+const showHistory = ref(false);
+const history = ref([]);
+const activities = ref([]);
 
-let intervalId = null
+let intervalId = null;
 
 // Computed
 const categories = computed(() => {
-  const cats = [...new Set(activities.value.map(a => a.category))]
-  return cats.sort()
-})
+  const cats = [...new Set(activities.value.map((a) => a.category))];
+  return cats.sort();
+});
 
 const filteredActivities = computed(() => {
-  let filtered = activities.value
+  let filtered = activities.value;
 
   if (selectedCategory.value) {
-    filtered = filtered.filter(a => a.category === selectedCategory.value)
+    filtered = filtered.filter((a) => a.category === selectedCategory.value);
   }
 
   if (activitySearch.value) {
-    const search = activitySearch.value.toLowerCase()
-    filtered = filtered.filter(a => 
-      a.name.toLowerCase().includes(search) ||
-      a.category.toLowerCase().includes(search)
-    )
+    const search = activitySearch.value.toLowerCase();
+    filtered = filtered.filter(
+      (a) =>
+        a.name.toLowerCase().includes(search) ||
+        a.category.toLowerCase().includes(search)
+    );
   }
 
-  return filtered
-})
+  return filtered;
+});
 
 const currentActivityInfo = computed(() => {
-  return activities.value.find(a => a.key === selectedActivity.value)
-})
+  return activities.value.find((a) => a.key === selectedActivity.value);
+});
 
-const circumference = computed(() => 2 * Math.PI * 136)
+const circumference = computed(() => 2 * Math.PI * 136);
 
 const progress = computed(() => {
-  const total = isRestMode.value ? restDuration.value * 60 : duration.value * 60
-  return ((total - timeLeft.value) / total) * 100
-})
+  const total = isRestMode.value
+    ? restDuration.value * 60
+    : duration.value * 60;
+  return ((total - timeLeft.value) / total) * 100;
+});
 
 const strokeDashoffset = computed(() => {
-  return circumference.value * (1 - progress.value / 100)
-})
+  return circumference.value * (1 - progress.value / 100);
+});
 
-const formattedTime = computed(() => formatTime(timeLeft.value))
+const formattedTime = computed(() => formatTime(timeLeft.value));
 
 const totalElapsed = computed(() => {
-  const workTime = (duration.value * 60) - timeLeft.value
-  const restTime = restDuration.value * 60 * (currentSet.value - 1)
+  const workTime = duration.value * 60 - timeLeft.value;
+  const restTime = restDuration.value * 60 * (currentSet.value - 1);
   if (isRestMode.value) {
-    return workTime + restTime + (restDuration.value * 60 - timeLeft.value)
+    return workTime + restTime + (restDuration.value * 60 - timeLeft.value);
   }
-  return workTime + restTime
-})
+  return workTime + restTime;
+});
 
 // Methods
 async function fetchActivities() {
   try {
-    const response = await fetch(`${API_URL}/api/activities`)
-    const data = await response.json()
-    
+    const response = await fetch(`${API_URL}/api/activities`);
+    const data = await response.json();
+
     if (data.success) {
-      activities.value = data.activities
+      activities.value = data.activities;
     }
   } catch (err) {
-    console.error('Failed to fetch activities:', err)
+    console.error("Failed to fetch activities:", err);
   }
 }
 
 const updateCaloriesPerHour = () => {
   if (!currentActivityInfo.value) {
-    caloriesPerHour.value = 0
-    return
+    caloriesPerHour.value = 0;
+    return;
   }
-  const met = currentActivityInfo.value.met_value
-  caloriesPerHour.value = met * weight.value * 1.05
-}
+  const met = currentActivityInfo.value.met_value;
+  caloriesPerHour.value = met * weight.value * 1.05;
+};
 
 const formatTime = (seconds) => {
-  const mins = Math.floor(seconds / 60)
-  const secs = seconds % 60
-  return `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`
-}
+  const mins = Math.floor(seconds / 60);
+  const secs = seconds % 60;
+  return `${mins.toString().padStart(2, "0")}:${secs
+    .toString()
+    .padStart(2, "0")}`;
+};
 
 const formatDate = (dateString) => {
-  const date = new Date(dateString)
-  return date.toLocaleDateString('id-ID', {
-    day: 'numeric',
-    month: 'short',
-    year: 'numeric',
-    hour: '2-digit',
-    minute: '2-digit'
-  })
-}
+  const date = new Date(dateString);
+  return date.toLocaleDateString("id-ID", {
+    day: "numeric",
+    month: "short",
+    year: "numeric",
+    hour: "2-digit",
+    minute: "2-digit",
+  });
+};
 
 const getIntensityClass = (intensity) => {
   const classes = {
-    'light': 'bg-green-100 text-green-700',
-    'moderate': 'bg-blue-100 text-blue-700',
-    'vigorous': 'bg-orange-100 text-orange-700',
-    'very_vigorous': 'bg-red-100 text-red-700'
-  }
-  return classes[intensity] || 'bg-gray-100 text-gray-700'
-}
+    light: "bg-green-100 text-green-700",
+    moderate: "bg-blue-100 text-blue-700",
+    vigorous: "bg-orange-100 text-orange-700",
+    very_vigorous: "bg-red-100 text-red-700",
+  };
+  return classes[intensity] || "bg-gray-100 text-gray-700";
+};
 
 const startTimer = () => {
   if (!selectedActivity.value) {
-    alert('Pilih aktivitas terlebih dahulu!')
-    return
+    alert("Pilih aktivitas terlebih dahulu!");
+    return;
   }
 
-  isRunning.value = true
-  isPaused.value = false
+  isRunning.value = true;
+  isPaused.value = false;
 
   intervalId = setInterval(() => {
     if (timeLeft.value > 0) {
-      timeLeft.value--
+      timeLeft.value--;
 
       if (!isRestMode.value) {
-        const caloriesPerSecond = caloriesPerHour.value / 3600
-        caloriesBurned.value += caloriesPerSecond
+        const caloriesPerSecond = caloriesPerHour.value / 3600;
+        caloriesBurned.value += caloriesPerSecond;
       }
     } else {
-      handleTimerComplete()
+      handleTimerComplete();
     }
-  }, 1000)
-}
+  }, 1000);
+};
 
 const pauseTimer = () => {
-  isRunning.value = false
-  isPaused.value = true
+  isRunning.value = false;
+  isPaused.value = true;
   if (intervalId) {
-    clearInterval(intervalId)
+    clearInterval(intervalId);
   }
-}
+};
 
 const resetTimer = () => {
-  isRunning.value = false
-  isPaused.value = false
-  isRestMode.value = false
-  currentSet.value = 1
-  timeLeft.value = duration.value * 60
-  caloriesBurned.value = 0
+  isRunning.value = false;
+  isPaused.value = false;
+  isRestMode.value = false;
+  currentSet.value = 1;
+  timeLeft.value = duration.value * 60;
+  caloriesBurned.value = 0;
 
   if (intervalId) {
-    clearInterval(intervalId)
+    clearInterval(intervalId);
   }
-}
+};
 
 const handleTimerComplete = () => {
-  isRunning.value = false
+  isRunning.value = false;
 
   if (intervalId) {
-    clearInterval(intervalId)
+    clearInterval(intervalId);
   }
 
   if (isRestMode.value) {
     if (currentSet.value < sets.value) {
-      currentSet.value++
-      isRestMode.value = false
-      timeLeft.value = duration.value * 60
-      
-      const audio = new Audio('data:audio/wav;base64,UklGRnoGAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQoGAACBhYqFbF1fdJivrJBhNjVgodDbq2EcBj+a2/LDciUFLIHO8tiJNwgZaLvt559NEAxQp+PwtmMcBjiR1/LMeSwFJHfH8N2QQAoUXrTp66hVFApGn+DyvmwhBTGH0fPTgjMGHm7A7+OZSAKN')
-      audio.play().catch(() => {})
-      
-      alert(`Istirahat selesai! Memulai set ${currentSet.value}`)
-      startTimer()
+      currentSet.value++;
+      isRestMode.value = false;
+      timeLeft.value = duration.value * 60;
+
+      const audio = new Audio(
+        "data:audio/wav;base64,UklGRnoGAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQoGAACBhYqFbF1fdJivrJBhNjVgodDbq2EcBj+a2/LDciUFLIHO8tiJNwgZaLvt559NEAxQp+PwtmMcBjiR1/LMeSwFJHfH8N2QQAoUXrTp66hVFApGn+DyvmwhBTGH0fPTgjMGHm7A7+OZSAKN"
+      );
+      audio.play().catch(() => {});
+
+      alert(`Istirahat selesai! Memulai set ${currentSet.value}`);
+      startTimer();
     } else {
-      saveWorkout()
-      alert('🎉 Workout selesai! Kerja bagus!')
+      saveWorkout();
+      alert("🎉 Workout selesai! Kerja bagus!");
     }
   } else {
     if (currentSet.value < sets.value) {
-      isRestMode.value = true
-      timeLeft.value = restDuration.value * 60
-      
-      const audio = new Audio('data:audio/wav;base64,UklGRnoGAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQoGAACBhYqFbF1fdJivrJBhNjVgodDbq2EcBj+a2/LDciUFLIHO8tiJNwgZaLvt559NEAxQp+PwtmMcBjiR1/LMeSwFJHfH8N2QQAoUXrTp66hVFApGn+DyvmwhBTGH0fPTgjMGHm7A7+OZSAKN')
-      audio.play().catch(() => {})
-      
-      alert(`Set ${currentSet.value} selesai! Waktunya istirahat.`)
-      startTimer()
+      isRestMode.value = true;
+      timeLeft.value = restDuration.value * 60;
+
+      const audio = new Audio(
+        "data:audio/wav;base64,UklGRnoGAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQoGAACBhYqFbF1fdJivrJBhNjVgodDbq2EcBj+a2/LDciUFLIHO8tiJNwgZaLvt559NEAxQp+PwtmMcBjiR1/LMeSwFJHfH8N2QQAoUXrTp66hVFApGn+DyvmwhBTGH0fPTgjMGHm7A7+OZSAKN"
+      );
+      audio.play().catch(() => {});
+
+      alert(`Set ${currentSet.value} selesai! Waktunya istirahat.`);
+      startTimer();
     } else {
-      saveWorkout()
-      alert('🎉 Workout selesai! Kerja bagus!')
+      saveWorkout();
+      alert("🎉 Workout selesai! Kerja bagus!");
     }
   }
-}
+};
 
 const saveWorkout = () => {
   const workout = {
@@ -539,45 +576,45 @@ const saveWorkout = () => {
     activity: currentActivityInfo.value.name,
     duration: duration.value,
     sets: sets.value,
-    caloriesBurned: Math.round(caloriesBurned.value)
-  }
+    caloriesBurned: Math.round(caloriesBurned.value),
+  };
 
-  history.value = [workout, ...history.value].slice(0, 20)
-  localStorage.setItem('workoutTimerHistory', JSON.stringify(history.value))
-}
+  history.value = [workout, ...history.value].slice(0, 20);
+  localStorage.setItem("workoutTimerHistory", JSON.stringify(history.value));
+};
 
 const clearHistory = () => {
-  if (confirm('Hapus semua riwayat workout?')) {
-    history.value = []
-    localStorage.removeItem('workoutTimerHistory')
+  if (confirm("Hapus semua riwayat workout?")) {
+    history.value = [];
+    localStorage.removeItem("workoutTimerHistory");
   }
-}
+};
 
 // Lifecycle
 onMounted(() => {
-  fetchActivities()
-  
-  const saved = localStorage.getItem('workoutTimerHistory')
+  fetchActivities();
+
+  const saved = localStorage.getItem("workoutTimerHistory");
   if (saved) {
-    history.value = JSON.parse(saved)
+    history.value = JSON.parse(saved);
   }
-})
+});
 
 onUnmounted(() => {
   if (intervalId) {
-    clearInterval(intervalId)
+    clearInterval(intervalId);
   }
-})
+});
 
 watch(duration, () => {
   if (!isRunning.value && !isPaused.value) {
-    timeLeft.value = duration.value * 60
+    timeLeft.value = duration.value * 60;
   }
-})
+});
 
 watch(selectedActivity, () => {
-  updateCaloriesPerHour()
-})
+  updateCaloriesPerHour();
+});
 </script>
 
 <style scoped>
@@ -593,7 +630,8 @@ watch(selectedActivity, () => {
   border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-input:focus, select:focus {
+input:focus,
+select:focus {
   box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.1);
 }
 </style>

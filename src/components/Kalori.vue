@@ -169,37 +169,58 @@
           <div class="glass rounded-xl p-5 text-center">
             <div class="flex items-center justify-center mb-3 space-x-2">
               <i class="fas fa-fire text-orange-500 text-3xl"></i>
-              <span class="text-xs px-2 py-1 bg-orange-50 text-orange-700 rounded-full">Maintenance</span>
+              <span
+                class="text-xs px-2 py-1 bg-orange-50 text-orange-700 rounded-full"
+                >Maintenance</span
+              >
             </div>
             <div class="text-2xl font-bold text-gray-900 mb-1">
               {{ result.data.hasil.kalori_keluar_per_hari }}
             </div>
             <p class="text-sm text-gray-600 font-medium">Kalori Masuk / Hari</p>
-            <p class="text-xs text-gray-500 mt-1">(Untuk mempertahankan berat)</p>
+            <p class="text-xs text-gray-500 mt-1">
+              (Untuk mempertahankan berat)
+            </p>
           </div>
 
-          <div class="glass rounded-xl p-5 text-center border-2 border-bright-blue">
+          <div
+            class="glass rounded-xl p-5 text-center border-2 border-bright-blue"
+          >
             <div class="flex items-center justify-center mb-3 space-x-2">
               <i class="fas fa-cut text-bright-blue text-3xl"></i>
-              <span class="text-xs px-2 py-1 bg-blue-50 text-bright-blue rounded-full">Defisit</span>
+              <span
+                class="text-xs px-2 py-1 bg-blue-50 text-bright-blue rounded-full"
+                >Defisit</span
+              >
             </div>
             <div class="text-2xl font-bold text-bright-blue mb-1">
               {{ result.data.hasil.rekomendasi.cutting }}
             </div>
-            <p class="text-sm text-gray-600 font-medium">Cutting (Kalori Masuk)</p>
-            <p class="text-xs text-gray-500 mt-1">(Untuk menurunkan berat badan)</p>
+            <p class="text-sm text-gray-600 font-medium">
+              Cutting (Kalori Masuk)
+            </p>
+            <p class="text-xs text-gray-500 mt-1">
+              (Untuk menurunkan berat badan)
+            </p>
           </div>
 
           <div class="glass rounded-xl p-5 text-center border-2 border-lime">
             <div class="flex items-center justify-center mb-3 space-x-2">
               <i class="fas fa-dumbbell text-lime text-3xl"></i>
-              <span class="text-xs px-2 py-1 bg-lime-50 text-lime-700 rounded-full">Surplus</span>
+              <span
+                class="text-xs px-2 py-1 bg-lime-50 text-lime-700 rounded-full"
+                >Surplus</span
+              >
             </div>
             <div class="text-2xl font-bold text-lime mb-1">
               {{ result.data.hasil.rekomendasi.bulking }}
             </div>
-            <p class="text-sm text-gray-600 font-medium">Bulking (Kalori Masuk)</p>
-            <p class="text-xs text-gray-500 mt-1">(Untuk menambah massa/berat)</p>
+            <p class="text-sm text-gray-600 font-medium">
+              Bulking (Kalori Masuk)
+            </p>
+            <p class="text-xs text-gray-500 mt-1">
+              (Untuk menambah massa/berat)
+            </p>
           </div>
         </div>
 
@@ -239,7 +260,7 @@
 <script setup>
 import { ref, reactive } from "vue";
 
-const API_URL = "http://127.0.0.1:5000";
+const API_URL = "https://fitbuddy.pythonanywhere.com";
 
 const form = reactive({
   tinggi_badan: "",
@@ -277,7 +298,7 @@ async function predictCalories() {
   } catch (err) {
     error.value =
       err.message ||
-      "Gagal menghubungi server. Pastikan API berjalan di http://127.0.0.1:5000";
+      "Gagal menghubungi server. Pastikan API berjalan di https://fitbuddy.pythonanywhere.com";
   } finally {
     loading.value = false;
   }
